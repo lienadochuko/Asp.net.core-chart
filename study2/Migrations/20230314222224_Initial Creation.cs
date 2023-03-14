@@ -27,21 +27,21 @@ namespace study2.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Transactiones",
+                name: "transactions",
                 columns: table => new
                 {
                     TransactionsId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
                     Amount = table.Column<int>(type: "int", nullable: false),
-                    Note = table.Column<string>(type: "nvarchar(75", nullable: true),
+                    Note = table.Column<string>(type: "nvarchar(75)", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Transactiones", x => x.TransactionsId);
+                    table.PrimaryKey("PK_transactions", x => x.TransactionsId);
                     table.ForeignKey(
-                        name: "FK_Transactiones_Categories_CategoryId",
+                        name: "FK_transactions_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "CategoryId",
@@ -49,8 +49,8 @@ namespace study2.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Transactiones_CategoryId",
-                table: "Transactiones",
+                name: "IX_transactions_CategoryId",
+                table: "transactions",
                 column: "CategoryId");
         }
 
@@ -58,7 +58,7 @@ namespace study2.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Transactiones");
+                name: "transactions");
 
             migrationBuilder.DropTable(
                 name: "Categories");

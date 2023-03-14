@@ -12,7 +12,7 @@ using study2.Data;
 namespace study2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230314215529_Initial Creation")]
+    [Migration("20230314222224_Initial Creation")]
     partial class InitialCreation
     {
         /// <inheritdoc />
@@ -68,13 +68,14 @@ namespace study2.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Note")
-                        .HasColumnType("nvarchar(75");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(75)");
 
                     b.HasKey("TransactionsId");
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Transactiones");
+                    b.ToTable("transactions");
                 });
 
             modelBuilder.Entity("study2.Models.Transactions", b =>

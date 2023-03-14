@@ -11,7 +11,7 @@ namespace study2.Data
 
         }
 
-        public DbSet<Transactions> Transactiones { get; set; }
+        public DbSet<Transactions> transactions { get; set; }
         public DbSet<Category> Categories { get; set; } 
     }
 }
