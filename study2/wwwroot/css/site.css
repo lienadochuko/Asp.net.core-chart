@@ -15,4 +15,28 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: #000;
+  color:#fff;
 }
+
+.e-btn-group.custom-rgt-group {
+    width: 100%;
+
+}
+
+    .e-btn-group.custom-rgt-group .e-btn {
+        width: 50%;
+    }
+.custom-rgt-group label.e-btn {
+    box-shadow: none !important;
+    border: 1px solid #fff;
+    background-color:rgb(34 43 51);
+    color: #fff;
+}
+
+.e-btn-group.custom-rgt-group input:checked + label.e-btn {
+    background-color: #fff;
+    color: #212b36;
+    border: 1px solid #fff;
+}
+
