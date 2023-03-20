@@ -3,32 +3,32 @@
 @{
     ViewData["Title"] = "Index";
 }
+
+@*<e-grid-column headerText="Type" field="Type"></e-grid-column>*@
+@* <e-grid-column headerText="Icon" field="Icon"></e-grid-column>*@
+@*<e-grid-column headerText="Actions" template="#actionColumnTemplate" width="100px"></e-grid-column>*@
+
 <div class="row" style="margin-top:3%;">
     <div class="col-md-7">
       <ejs-grid id="categories" dataSource="@Model" gridLines="None">
           <e-grid-columns>
                 <e-grid-column headerText="Category" field="TilePlusIcon"></e-grid-column>
-                <e-grid-column headerText="Type" template="#typeColumnTemplate"></e-grid-column>
-              @*<e-grid-column headerText="Type" field="Type"></e-grid-column>*@
-             @* <e-grid-column headerText="Icon" field="Icon"></e-grid-column>*@
-              <e-grid-column headerText="Action">
-
-              </e-grid-column>
-          </e-grid-columns>
-      </ejs-grid>
-
+                <e-grid-column headerText="Type" template="#typeColumnTemplate" width="150px"></e-grid-column>
+                 <e-grid-column headerText="Actions"></e-grid-column>
+            </e-grid-columns>
+        </ejs-grid>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-5 mt-sm-2">
         <div class="widget h-100 w-100 d-flex justify-content-center align-items-center" style="background-color: #212b36">
             <i class="fa-solid fa-layer-group fa-6x"></i>
         </div>
     </div>
 </div>
 
-
 <script id="typeColumnTemplate" type="text/x-template">
-    ${if (Type == "Expense")}
-             <span class="badge badge-danger">${Type}</span>
+    ${if(Type=="Income")}
+        <span class="badge bg-success">${Type}</span>
     ${else}
-            <span class="badge badge-success">${Type}</span>
+        <span class="badge bg-danger">${Type}</span>
+    ${/if}
 </script>
