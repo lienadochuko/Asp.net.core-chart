@@ -8,9 +8,19 @@ html {
   }
 }
 
-html {
+html {çççç                                                     
   position: relative;
   min-height: 100%;
+  font-family: "Inter"
+}
+
+* {
+    font-family: "Inter";
+}
+
+*:not(.fa-solid):not(.fa):not(.e-icons){
+    font-family : "Inter";
+    font-family : "Inter";
 }
 
 body {
@@ -124,4 +134,7 @@ body {
     padding: 10px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+.fa-pen {
+    color: white;
 }

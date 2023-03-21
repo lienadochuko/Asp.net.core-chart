@@ -8,13 +8,18 @@
 @* <e-grid-column headerText="Icon" field="Icon"></e-grid-column>*@
 @*<e-grid-column headerText="Actions" template="#actionColumnTemplate" width="100px"></e-grid-column>*@
 
+<div>
+    <a asp-controller="Categories" asp-action="AddOrEdit" class="btn btn-success">Create</a>
+</div>
 <div class="row" style="margin-top:3%;">
     <div class="col-md-7">
-      <ejs-grid id="categories" dataSource="@Model" gridLines="None">
+      <ejs-grid id="categories" dataSource="@Model" gridLines="None"
+      allowSorting="true" allowPaging="true">
+      <e-grid-pagesettings pageSize="5"></e-grid-pagesettings>
           <e-grid-columns>
                 <e-grid-column headerText="Category" field="TilePlusIcon"></e-grid-column>
                 <e-grid-column headerText="Type" template="#typeColumnTemplate" width="150px"></e-grid-column>
-                 <e-grid-column headerText="Actions"></e-grid-column>
+                <e-grid-column headerText="Actions" template="#actionColumnTemplate" width="100px"></e-grid-column>
             </e-grid-columns>
         </ejs-grid>
     </div>
@@ -31,4 +36,15 @@
     ${else}
         <span class="badge bg-danger">${Type}</span>
     ${/if}
+</script>
+
+<script id="actionColumnTemplate" type="text/x-template">
+   <div class="d-flex flex-row justify-content-start">
+       <a class="btn btn-sm" href="/Categories/AddOrEdit/${CategoryId}">
+           <i class="fa-solid fa-pen fa-lg"></i>
+       </a>
+         <a class="btn btn-sm" href="/Categories/AddOrEdit/${CategoryId}">
+            <i class="fa-solid fa-pen fa-lg"></i>
+        </a>
+   </div>
 </script>
