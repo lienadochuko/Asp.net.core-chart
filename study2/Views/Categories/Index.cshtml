@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Index";
 }
+
 <div class="row" style="margin-top:3%;">
     <div class="col-md-7">
       <ejs-grid id="categories" dataSource="@Model" gridLines="None">
@@ -11,9 +12,7 @@
                 <e-grid-column headerText="Type" template="#typeColumnTemplate"></e-grid-column>
               @*<e-grid-column headerText="Type" field="Type"></e-grid-column>*@
              @* <e-grid-column headerText="Icon" field="Icon"></e-grid-column>*@
-              <e-grid-column headerText="Action">
-
-              </e-grid-column>
+              <e-grid-column headerText="Action"></e-grid-column>
           </e-grid-columns>
       </ejs-grid>
 
@@ -21,7 +20,7 @@
     <div class="col-md-5">
         <div class="widget h-100 w-100 d-flex justify-content-center align-items-center" style="background-color: #212b36">
             <i class="fa-solid fa-layer-group fa-6x"></i>
-        </div>
+           </div>
     </div>
 </div>
 
