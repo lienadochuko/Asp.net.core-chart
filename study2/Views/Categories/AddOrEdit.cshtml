@@ -1,7 +1,7 @@
 ﻿@model study2.Models.Category
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["PageTitle"] = Model.CategoryId == 0? "Create new Categories" : "Edit Category";
 }
 
 <div class="row" style="margin-top:3%;">
@@ -28,13 +28,13 @@
                     <span asp-validation-for="Icon" class="text-danger"></span>
                 </div>
                 <div class="grafitax">
-                    <div class="form-group">
+                    <div class="form-group mr-1">
                         <ejs-button id="submit" type="submit" cssClass="e-success" content="Save" class="btn btn-primary" />
 
                     </div>
                     <div>
                         <a asp-action="Index" class="btn btn-primary" style="background-color: cornflowerblue; height:fit-content; padding: 0.200rem 0.60rem;">Back</a>
-                    </div>e
+                    </div>
                 </div>
             </form>
         </div>

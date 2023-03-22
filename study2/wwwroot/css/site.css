@@ -138,3 +138,6 @@ body {
 .fa-pen {
     color: white;
 }
+.fa-trash {
+    color: #dc3545 !important;
+}
