@@ -33,7 +33,7 @@ namespace study2.Controllers
         {
             if (id == null || _context.transactions == null)
             {
-                return View(new Category());
+                return View(new Transactions());
             }
 
             var transaction = await _context.transactions.FindAsync(id);
@@ -49,7 +49,7 @@ namespace study2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddOrEdit(int id, [Bind("CategoryId,Title,Icon,Type")] Transactions transaction)
         {
-            if (id != transaction.CategoryId)
+            if (id != transaction.TransactionsId)
             {
                 return NotFound();
             }
