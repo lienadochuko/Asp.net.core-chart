@@ -9,7 +9,7 @@ namespace study2.Models
         public int TransactionsId { get; set; }
 
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public Category? Category { get; set; }
 
         public int Amount { get; set; }
          

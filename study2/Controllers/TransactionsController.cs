@@ -29,45 +29,27 @@ namespace study2.Controllers
 
 
         // GET: Transactions/Create
-        public async Task<IActionResult> AddOrEdit(int? id)
+        public async Task<IActionResult> AddOrEdit(int id = 0)
         {
-            if (id == null || _context.transactions == null)
-            {
+                PopulateCategories();
+            if (id == 0)
                 return View(new Transactions());
-            }
-
-            var transaction = await _context.transactions.FindAsync(id);
-            if (transaction == null)
-            {
-                return NotFound();
-            }
-            return View(transaction);
+            else
+                return View(_context.transactions.Find(id));
         }
 
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddOrEdit(int id, [Bind("CategoryId,Title,Icon,Type")] Transactions transaction)
+        public async Task<IActionResult> AddOrEdit([Bind("TransactionId,CategoryId,Amount,Note,Date")] Transactions transaction)
         {
-            if (id != transaction.TransactionsId)
-            {
-                return NotFound();
-            }
-
             if (ModelState.IsValid)
             {
-                try
-                {
                     _context.Update(transaction);
                     await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    return NotFound();
-
-                }
                 return RedirectToAction(nameof(Index));
             }
+            PopulateCategories();
             return View(transaction);
         }
 
@@ -94,5 +76,14 @@ namespace study2.Controllers
         {
           return (_context.transactions?.Any(e => e.TransactionsId == id)).GetValueOrDefault();
         }
-    }
+
+        [NonAction]
+        public void PopulateCategories()
+        {
+            var CategoryCollection = _context.Categories.ToList();
+            Category DefaultCategory = new Category() { CategoryId = 0, Title = "Choose a category"};
+            CategoryCollection.Insert(0, DefaultCategory);
+            ViewBag.Categories = CategoryCollection;    
+        }
+       }
 }

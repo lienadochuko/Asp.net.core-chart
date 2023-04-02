@@ -8,7 +8,11 @@
 
 
 <div class="row">
-    <div class="col-md-7">
+    <div class="col-md-9">
+        <ejs-grid id="transactions" dataSource="@Model" gridLines="None"
+                  allowSorting="true" allowPaging="true" style="background-color: #212b36">
+      <e-grid-pagesettings pageSize="5"></e-grid-pagesettings>
+  </ejs-grid>
         <table class="table">
             <thead>
                 <tr>
@@ -44,8 +48,7 @@
                             @Html.DisplayFor(modelItem => item.Date)
                         </td>
                         <td>
-                            <a asp-action="Edit" asp-route-id="@item.TransactionsId">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.TransactionsId">Details</a> |
+                            <a asp-action="AddOrEdit" asp-route-id="@item.TransactionsId">Edit</a> |
                             <a asp-action="Delete" asp-route-id="@item.TransactionsId">Delete</a>
                         </td>
                     </tr>
@@ -53,9 +56,9 @@
             </tbody>
         </table>
     </div>
-    <div class="col-md-5 mt-sm-2">
+    <div class="col-md-2 mt-sm-2">
         <div class="widget h-100 w-100 d-flex justify-content-center align-items-center">
-            <i class="fa-solid fa-layer-group fa-6x"></i>
+            <i class="fa-solid fa-layer-group fa-2x"></i>
         </div>
     </div>
 </div>
